@@ -1,13 +1,14 @@
 ﻿using Business.BusinessLogic;
 using Core;
 using Core.Entities;
+using Core.Exceptions;
 using Core.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Services.Controllers
 {
     [ApiController]
-    [Route("api/trades")]
+    [Route("api/[controller]")]
     public class TradeController : ControllerBase
     {
         private readonly ITradeBusinessLogic _tradeBusinessLogic;

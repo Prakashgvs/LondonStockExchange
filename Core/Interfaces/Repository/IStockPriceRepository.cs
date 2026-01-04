@@ -9,6 +9,6 @@ namespace Core.Interfaces
     {
         Task<StockSummary?> GetByTickerAsync(string tickerSymbol);
         Task<List<StockSummary>> GetByTickersAsync(List<string> tickers);
-        Task<List<StockSummary>> GetAllAsync();
+        Task<List<StockSummary>> GetAllTickersAsync();
     }
 }

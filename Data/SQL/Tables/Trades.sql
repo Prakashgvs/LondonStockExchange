@@ -1,0 +1,12 @@
+﻿CREATE TABLE Trades
+(
+    TransactionId BIGINT IDENTITY(1,1) PRIMARY KEY,
+    TradeId UNIQUEIDENTIFIER NOT NULL,
+    TickerSymbol NVARCHAR(10) NOT NULL,
+    Price DECIMAL(18,4) NOT NULL,
+    Shares DECIMAL(18,4) NOT NULL,
+    BrokerId NVARCHAR(50) NOT NULL,
+    TradeValue DECIMAL(18,4) NOT NULL,
+    TimestampUtc DATETIME2 NOT NULL
+);
+

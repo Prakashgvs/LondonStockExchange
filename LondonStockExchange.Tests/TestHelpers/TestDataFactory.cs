@@ -17,15 +17,37 @@ namespace LondonStockExchange.Tests.TestHelpers
             BrokerId = "BRK1"
         };
 
-        public static StockSummary StockSummary(decimal totalValue, decimal totalShares)
+        public static StockSummary StockSummary(decimal totalValue, int totalShares, string ticker = "BEL")
         {
             return new StockSummary
             {
-                TickerSymbol = "BEL",
+                TickerSymbol = ticker,
                 TotalValue = totalValue,
                 TotalShares = totalShares,
                 TransactionCount = 5,
                 LastUpdated = DateTime.UtcNow
+            };
+        }
+
+        public static TradeMessage TradeMessage(string ticker = "BEL", decimal price = 100, int shares = 10, string brokerId = "BRK1")
+        {
+            return new TradeMessage
+            {
+                TradeId = Guid.NewGuid(),
+                TickerSymbol = ticker,
+                Price = price,
+                Shares = shares,
+                BrokerId = brokerId,
+                TradeValue = price * shares,
+                OccurredAtUtc = DateTime.UtcNow
+            };
+        }
+
+        public static StockBatchRequest StockBatchRequest(params string[] tickers)
+        {
+            return new StockBatchRequest
+            {
+                Tickers = tickers.ToList()
             };
         }
     }

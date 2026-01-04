@@ -46,7 +46,7 @@ namespace Data.Repository
             )).ToList();
         }
 
-        public async Task<List<StockSummary>> GetAllAsync()
+        public async Task<List<StockSummary>> GetAllTickersAsync()
         {
             return (await _database.QueryAsync<StockSummary>(
                 "sp_GetAllStockSummaries"
