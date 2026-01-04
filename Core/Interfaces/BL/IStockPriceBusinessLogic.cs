@@ -8,6 +8,6 @@ namespace Core.Interfaces
     public interface IStockPriceBusinessLogic
     {
         Task<StockPrice?> GetStockPriceAsync(string ticker);
-        Task<List<StockPrice>> GetStockPricesAsync(StockBatchRequest request);
+        Task<List<StockPrice>> GetStockPricesBatchAsync(StockBatchRequest request);
     }
 }

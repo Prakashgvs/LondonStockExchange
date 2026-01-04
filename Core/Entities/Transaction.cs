@@ -6,7 +6,7 @@ namespace Core.Entities
 {
     public class Transaction
     {
-        public long Id { get; set; }
+        public Guid TradeId { get; set; }
 
         public string TickerSymbol { get; set; } = default!;
 

@@ -21,6 +21,7 @@ namespace Data.Repository
         {
             var parameters = new DynamicParameters();
 
+            parameters.Add("@TradeId", transaction.TradeId);
             parameters.Add("@TickerSymbol", transaction.TickerSymbol);
             parameters.Add("@Price", transaction.Price);
             parameters.Add("@Shares", transaction.Shares);

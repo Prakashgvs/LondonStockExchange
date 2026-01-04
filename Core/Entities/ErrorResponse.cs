@@ -13,6 +13,7 @@ namespace Core.Entities
         public int Status { get; set; }
         public string Error { get; set; } = default!;
         public string Message { get; set; } = default!;
+        public string CorrelationId { get; set; } = default!;
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public Dictionary<string, string>? Details { get; set; }

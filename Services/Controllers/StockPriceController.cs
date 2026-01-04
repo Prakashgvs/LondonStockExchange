@@ -26,11 +26,17 @@ namespace Services
             return Ok(result);
         }
 
-        [HttpGet("values")]
-        public async Task<ActionResult<List<StockPrice>>> GetStockPrices([FromBody] StockBatchRequest request)
+        [HttpGet("batch")]
+        public async Task<ActionResult<List<StockPrice>>> GetStockPricesBatch([FromQuery] string? tickers = null)
         {
-            var result = await _stockPriceBusinessLogic.GetStockPricesAsync(request);
+            var tickerList = string.IsNullOrEmpty(tickers)
+                ? new List<string>()
+                : tickers.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList();
+
+            var request = new StockBatchRequest { Tickers = tickerList };
+            var result = await _stockPriceBusinessLogic.GetStockPricesBatchAsync(request);
             return Ok(result);
         }
+
     }
 }
